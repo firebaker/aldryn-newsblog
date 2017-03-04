@@ -53,3 +53,4 @@ docs/env
 node_modules/
 aldryn_newsblog/tests/frontend/coverage/
 requirements.txt
+aldryn_newsblog/migrations/*
