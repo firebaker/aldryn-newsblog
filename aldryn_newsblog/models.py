@@ -138,6 +138,10 @@ class Article(TranslatedAutoSlugifyMixin,
         blank=True,
         on_delete=models.SET_NULL,
     )
+    featured_image_source = models.CharField(max_length=32, blank=True)
+    featured_image_source_url = models.URLField(blank=True)
+    featured_image_license = models.CharField(max_length=32, blank=True)
+    featured_image_license_url = models.URLField(blank=True)
     tags = TaggableManager(blank=True)
 
     # Setting "symmetrical" to False since it's a bit unexpected that if you

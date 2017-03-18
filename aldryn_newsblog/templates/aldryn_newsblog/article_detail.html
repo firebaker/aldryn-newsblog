@@ -12,8 +12,11 @@
 				        {% thumbnail article.featured_image 1200x400 crop subject_location=article.featured_image.subject_location %}
 				      {% else %}
 				        {% static 'img/post-bg.jpg' %}
-				      {% endif %}
-				      )">
+				      {% endif %});
+                      {% if article.featured_image_source %}
+                        margin-bottom: 0px;
+                      {% endif %}
+				      ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -32,6 +35,27 @@
       </div>
     </div>
   </header>
+
+  {% if article.featured_image_source %}
+    <div class="header_copyright" style="height: 64px">
+      <span style="float:right; padding: 0px 64px 0px 0px">
+        <a data-toggle="popover"
+           data-placement="auto top"
+           data-html="true"
+           title="Image Source &amp; Copyright"
+           data-content="Source:
+                         <a href='{{ article.featured_image_source_url }}''>
+                           {{ article.featured_image_source }}
+                         </a>
+                         <br>
+                         License:
+                         <a href='{{ article.featured_image_license_url }}'>
+                           {{ article.featured_image_license}}
+                         </a>
+                         ">Copyright &copy;</a>
+      </span>
+    </div>
+  {% endif %}
 {% endblock %}
 
 {% block newsblog_content %}
